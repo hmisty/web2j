@@ -3,10 +3,10 @@ import org.mortbay.jetty.servlet.Context;
 import org.mortbay.jetty.servlet.FilterHolder;
 import org.mortbay.jetty.servlet.ServletHolder;
 
-import demo.HejServlet;
+import demo.IndexServlet;
 import demo.HelloFilter;
 import demo.HelloServlet;
-import demo.IndexServlet;
+import demo.PageServlet;
 import demo.StaticServlet;
 
 /** the jetty app of xweb
@@ -21,10 +21,10 @@ public class AppServer {
 		
 		root.addFilter(new FilterHolder(new HelloFilter()), "/*", 1);
 		root.addServlet(new ServletHolder(new HelloServlet()), "/hello");
+		root.addServlet(new ServletHolder(new PageServlet()), "/page");
 		root.addServlet(new ServletHolder(new IndexServlet()), "/");
-		root.addServlet(new ServletHolder(new HejServlet()), "/hej/*");
 		
-		root.addServlet(new ServletHolder(new StaticServlet("./static")), "/static/*");
+//		root.addServlet(new ServletHolder(new StaticServlet("./static")), "/static/*");
 
 		server.start();
 	}

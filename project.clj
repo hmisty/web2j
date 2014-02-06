@@ -6,7 +6,7 @@
                  [org.clojure/clojure "1.5.1"]
                  [ring "1.1.8"]
                  [compojure "1.1.5"]]
-  :main AppServer
+  :main demo.server
   :aot :all
   :source-paths ["src/clj"]
   :resource-paths ["tmpl" "src/java"] ;;for lein2-eclipse to add to src

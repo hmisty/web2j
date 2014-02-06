@@ -9,6 +9,6 @@
   :main demo.server
   :aot :all
   :source-paths ["src/clj"]
-  :resource-paths ["tmpl" "src/java"] ;;for lein2-eclipse to add to src
+  :resource-paths ["src/tmpl" "src/java"] ;;for lein2-eclipse to add to src
   ;;:java-source-paths ["src/java"] ;;will be ignored by lein2-eclipse
   :plugins [[lein2-eclipse "2.0.0"]])

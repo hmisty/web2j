@@ -2,11 +2,15 @@
 
 web2j follows the No Framework Principle (NFP), hence it is not yet another Java web framework.
 
-web2j gives you a flavor of how to develop Java web app with mixing with clojure.
+web2j gives you a flavor of how to develop Java web app with mixin of clojure.
 
 Also it shows the double entries to the app, either from Java or from clojure.
 
 Why? Entry from Java makes it looks like a Java web project extended with clojure servlets. The approach may enable you to answer your boss that you are coding a Java web project with some extensions written by some hosted language.
+
+Who is the main entry? Java.
+
+So, web2j is a Java web (no) framework eased by a hosted lang clojure and its toolchain lein.
 
 ## No Framework Principle (NFP)
 
@@ -17,7 +21,7 @@ NFP is about composing.
 ## Double Entries
 
 ```
-eclipse:
+main entry:
 +-------------------------+                                        +------------------+
 | java web server (jetty) |----- servlet mapping --( /somepath )-->| demo.SomeServlet |
 +-------------------------+             | ( / )                    +------------------+
@@ -25,7 +29,7 @@ eclipse:
                               +---------v---------+
                               | demo.IndexServlet |
                               +---------+---------+
-lein:                                   |
+dev entry:                              |
 +-------------------------+   +---------v---------+
 | clj web server (jetty)  |-->|   demo.core/app   |--> ring/compoojure/...
 +-------------------------+   +-------------------+
@@ -56,6 +60,12 @@ project.clj .project .classpath
 ```
 
 ## Development
+
+```
++-----------------+                  +--------------+
+| clojure project |--(lein eclipse)->| java project |
++-----------------+                  +--------------+
+```
 
 Develop clojure servlets first.
 
@@ -156,6 +166,11 @@ web.xml is created for defining the servlets and mapping info like this:
 
 </web-app>
 ```
+
+## TODO
+
+* tool to generate project structure, lein project and eclipse project, sync
+* tool to easily package the war and generate the nginx config
 
 ## License
 (c)Copyright Evan Liu (hmisty).
